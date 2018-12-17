@@ -5,7 +5,7 @@ from splinter import Browser
 @pytest.fixture(scope="module")
 def browser():
     global browser
-    browser = Browser('chrome')
+    browser = Browser('firefox')
     return browser
 
 
@@ -36,7 +36,7 @@ def get_translation(open_translate_page):
     """Get text from translation field """
     swap_button = browser.find_by_css('div.button.button_icon.button_icon_swap')
     swap_button.click()
-    browser.find_by_id('fakeArea').fill("test")
+    browser.find_by_id('textarea').fill("test")
     translation = browser.is_text_present('испытание', wait_time=10)
     browser.quit()
     return translation
