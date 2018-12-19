@@ -25,7 +25,7 @@ def open_start_page(browser, base_url):
 
 @pytest.fixture(scope="module")
 def open_translate_page(open_start_page):
-    """Open translate.yandex.ru/"""
+    """Open translate.yandex.ru"""
     link = browser.find_link_by_partial_href('translate').first
     link.click()
     return browser
@@ -33,7 +33,7 @@ def open_translate_page(open_start_page):
 
 @pytest.fixture(scope="module")
 def get_translation(open_translate_page):
-    """Get text from translation field """
+    """Get text from translation field"""
     swap_button = browser.find_by_css('div.button.button_icon.button_icon_swap')
     swap_button.click()
     browser.find_by_id('textarea').fill("test")
