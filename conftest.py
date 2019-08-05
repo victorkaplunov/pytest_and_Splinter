@@ -5,7 +5,7 @@ from splinter import Browser
 @pytest.fixture(scope="module")
 def browser():
     global browser
-    browser = Browser('firefox')
+    browser = Browser('firefox', headless=True)
     return browser
 
 
