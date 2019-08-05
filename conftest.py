@@ -33,7 +33,7 @@ def open_translate_page(open_start_page):
 
 @pytest.fixture(scope="module")
 def get_translation(open_translate_page):
-    """Get text from translation field"""
+    """Paste word "test" into origin field and get text from translation field"""
     swap_button = browser.find_by_css('div.button.button_icon.button_icon_swap')
     swap_button.click()
     browser.find_by_id('textarea').fill("test")
