@@ -1,5 +1,5 @@
-# pytest_and_Splinter
+# Splinter and pytest
 
-It is demo of using Splinter and pytest's fixtures in simple tests.
+It is demo of using [Splinter](https://splinter.readthedocs.io/en/latest/) and pytest fixtures in simple Web Ui tests.  It use Firefox webdriver in headless session.
 
-Tests can be run on Travis CI in headless browser session: https://travis-ci.com/victorkaplunov/pytest_and_Splinter
+Tests can be run on Travis CI: https://travis-ci.com/victorkaplunov/pytest_and_Splinter
