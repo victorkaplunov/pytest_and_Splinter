@@ -1,10 +1,10 @@
 class TestClass(object):
 
-    def test_start_page(self, open_start_page):
+    def test_open_start_page(self, open_start_page):
         """Start page is open"""
         assert open_start_page.title == 'Яндекс'
 
-    def test_translate(self, open_translate_page):
+    def test_open_translate_page(self, open_translate_page):
         """Translate page is open"""
         assert open_translate_page.title.find("Яндекс.Переводчик") == 0
 
