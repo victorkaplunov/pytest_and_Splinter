@@ -40,3 +40,27 @@ def get_translation(open_translate_page):
     translation = browser.is_text_present('испытание', wait_time=10)
     browser.quit()
     return translation
+
+@pytest.mark.optionalhook
+def pytest_html_results_table_header(cells):
+    """Настройка генератора отчетов pytest_html. Добавляет заголовок в отчет для колонок с
+    описанием теста (docstring) и временем."""
+    cells.insert(2, html.th('Description'))
+    cells.insert(1, html.th('Time', class_='sortable time', col='time'))
+    cells.pop()
+
+
+@pytest.mark.optionalhook
+def pytest_html_results_table_row(report, cells):
+    """Настройка генератора отчетов pytest_html. Добавялет колонки с описанием теста (docstring)  и временем в отчет."""
+    cells.insert(2, html.td(report.description))
+    cells.insert(1, html.td(datetime.now(), class_='col-time'))
+    cells.pop()
+
+
+@pytest.mark.hookwrapper
+def pytest_runtest_makereport(item, call):
+    """Настройка генератора отчетов pytest_html. Добавялет описание теста (docstring)."""
+    outcome = yield
+    report = outcome.get_result()
+    report.description = str(item.function.__doc__)
